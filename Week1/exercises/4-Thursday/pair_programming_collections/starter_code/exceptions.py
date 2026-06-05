@@ -12,6 +12,7 @@ class InventoryError(Exception):
 
     Catch this if you want to handle any inventory error regardless of type.
     """
+
     pass
 
 

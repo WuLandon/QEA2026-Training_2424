@@ -13,9 +13,9 @@ References:
     written/4-Thursday/try-except.md
 """
 
-from product import Product
+from exceptions import InsufficientStockError, ProductNotFoundError
 from inventory import Inventory
-from exceptions import ProductNotFoundError, InsufficientStockError
+from product import Product
 
 
 def section(title: str) -> None:
@@ -30,77 +30,93 @@ def main():
     # ── 1. Add at least 8 products across 3+ categories ───────────────────
     section("1. Loading Inventory")
 
-    # TODO: Create and add at least 8 Product instances.
-    # Use at least 3 different categories (e.g., "electronics", "accessories", "software").
-    # Example:
-    #   p = Product("Laptop", 999.99, stock=15, category="electronics")
-    #   product_id = inv.add_product(p)
-    #   print(f"  Added: {p} → ID={product_id}")
+    products = [
+        Product("Laptop Pro", 1299.99, stock=10, category="electronics"),
+        Product("Mechanical Keyboard", 119.99, stock=25, category="accessories"),
+        Product("Wireless Mouse", 49.99, stock=40, category="accessories"),
+        Product("4K Monitor", 349.99, stock=12, category="electronics"),
+        Product("USB-C Hub", 34.99, stock=30, category="accessories"),
+        Product("Project Management Suite", 199.99, stock=50, category="software"),
+        Product("Antivirus Plus", 59.99, stock=60, category="software"),
+        Product("Gaming Headset", 89.99, stock=18, category="electronics"),
+    ]
+
+    for product in products:
+        product_id = inv.add_product(product)
+        print(f"  Added: {product} -> ID={product_id}")
 
     # ── 2. Display all products sorted by price ────────────────────────────
     section("2. All Products (sorted by price)")
 
-    # TODO: Use sorted() with the __lt__ dunder to sort inv.products.values().
-    # Print each product using its __str__ representation.
+    for product in sorted(inv.products.values()):
+        print(f"  {product}")
 
     # ── 3. Search products by keyword ─────────────────────────────────────
     section("3. Search: 'pro'")
 
-    # TODO: Call inv.search("pro") and print the results.
-    # This uses the __contains__ dunder on Product.
+    for product in inv.search("pro"):
+        print(f"  {product}")
 
     # ── 4. Filter by category ─────────────────────────────────────────────
     section("4. Category: 'electronics'")
 
-    # TODO: Call inv.by_category("electronics") and print the results.
+    for product in inv.by_category("electronics"):
+        print(f"  {product}")
 
     # ── 5. Sell products — one should succeed, one should fail ────────────
     section("5. Sell Operations")
 
-    # TODO: Attempt to sell a quantity that succeeds, then one that exceeds stock.
-    # Use try/except to catch InsufficientStockError and print the error details.
-    # Access e.requested and e.available from the exception object.
+    inv.sell(1, 2)
+    print(f"  Sold 2 units of {inv.get_product(1).name}")
+
+    try:
+        inv.sell(4, 20)
+    except InsufficientStockError as e:
+        print(f"  {e}")
+        print(f"  Requested: {e.requested}, Available: {e.available}")
 
     # ── 6. Access a non-existent product ID ───────────────────────────────
     section("6. Non-Existent Product Lookup")
 
-    # TODO: Try inv.get_product(9999) and catch ProductNotFoundError.
+    try:
+        inv.get_product(9999)
+    except ProductNotFoundError as e:
+        print(f"  {e}")
 
     # ── 7. Transaction history ────────────────────────────────────────────
     section("7. Recent Transaction History")
 
-    # TODO: Print each entry in inv.history.
-    # Remember: history is a deque — you can iterate over it directly.
+    for e in inv.history:
+        print(f"  {e}")
 
     # ── 8. Inventory summary ──────────────────────────────────────────────
     section("8. Inventory Summary")
 
-    # TODO: Call inv.summary() and print each key-value pair neatly.
+    for key, value in inv.summary().items():
+        print(f"  {key}: {value}")
 
     # ── 9. Set operations on categories ───────────────────────────────────
     section("9. Set Operations on Categories")
 
     my_wishlist = {"electronics", "gaming", "software"}
 
-    # TODO: Use inv.categories (a set) and my_wishlist to show:
-    #   - Union:        All categories across both sets
-    #   - Intersection: Categories in BOTH my_wishlist and the inventory
-    #   - Difference:   Categories in my_wishlist but NOT in the inventory
-    # Use the |, &, - operators (ref: written/4-Thursday/sets.md)
+    print(f"  Union: {inv.categories | my_wishlist}")
+    print(f"  Intersection: {inv.categories & my_wishlist}")
+    print(f"  Difference: {my_wishlist - inv.categories}")
 
     # ── 10. Tuple-based product configurations ────────────────────────────
     section("10. Product Configs as Tuples")
 
-    # TODO: Define at least 3 product configurations as tuples:
-    #   configs = [
-    #       ("Monitor", 349.99, 8, "electronics"),
-    #       ("USB Hub",  24.99, 30, "accessories"),
-    #       ...
-    #   ]
-    # Iterate over configs and add each as a Product to the inventory.
-    # Print the updated total using len(inv).
-    # This demonstrates tuples as immutable, structured data records.
-    # (ref: written/4-Thursday/tuples.md — "Tuples as Fixed Records")
+    configs = [
+        ("Webcam", 79.99, 14, "electronics"),
+        ("Desk Mat", 19.99, 35, "accessories"),
+        ("Photo Editor", 149.99, 20, "software"),
+    ]
+
+    for name, price, stock, category in configs:
+        inv.add_product(Product(name, price, stock=stock, category=category))
+
+    print(f"  Total products in inventory: {len(inv)}")
 
 
 if __name__ == "__main__":
