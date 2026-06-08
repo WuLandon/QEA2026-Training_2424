@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% if student and student.id %}Edit Student{% else %}Add Student{% endif %}</title>
+  </head>
+  <body>
+    <h1>{% if student and student.id %}Edit Student{% else %}Add Student{% endif %}</h1>
+
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <form action="{{ form_action }}" method="post">
+      <div>
+        <label for="name">Name</label>
+        <input id="name" name="name" value="{{ student.name if student else '' }}" />
+      </div>
+      <div>
+        <label for="course">Course</label>
+        <input id="course" name="course" value="{{ student.course if student else '' }}" />
+      </div>
+      <button type="submit">Save</button>
+    </form>
+
+    <p><a href="/students">Back to list</a></p>
+  </body>
+</html>
