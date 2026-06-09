@@ -10,31 +10,44 @@
  */
 public class Calculator {
 
+    /** Adds two double values. */
     public static double add(double a, double b) {
-        // TODO
-        throw new UnsupportedOperationException("Implement add(a,b)");
+        return a + b;
     }
 
-    /** Sum of three doubles — overloads add(a,b). */
+    /** Adds three double values. */
     public static double add(double a, double b, double c) {
-        // TODO: should call add twice or sum directly
-        throw new UnsupportedOperationException("Implement add(a,b,c)");
+        return a + b + c;
     }
 
+    /** Subtracts {@code b} from {@code a}. */
     public static double subtract(double a, double b) {
-        throw new UnsupportedOperationException("Implement subtract");
+        return a - b;
     }
 
+    /** Multiplies two double values. */
     public static double multiply(double a, double b) {
-        throw new UnsupportedOperationException("Implement multiply");
+        return a * b;
     }
 
+    /**
+     * Divides {@code a} by {@code b}.
+     * Returns {@link Double#NaN} when {@code b} is zero to avoid an exception.
+     */
     public static double divide(double a, double b) {
-        throw new UnsupportedOperationException("Implement divide with zero check");
+        if (b == 0) {
+            System.out.println("Cannot divide by zero. Returning NaN.");
+            return Double.NaN;
+        }
+        return a / b;
     }
 
     public static void main(String[] args) {
-        // TODO: demonstrate all methods including overload and divide-by-zero
-        System.out.println("Implement main");
+        System.out.println("add(2.0, 3.5) = " + add(2.0, 3.5));
+        System.out.println("add(1.0, 2.0, 3.0) = " + add(1.0, 2.0, 3.0));
+        System.out.println("subtract(10.0, 4.0) = " + subtract(10.0, 4.0));
+        System.out.println("multiply(6.0, 7.0) = " + multiply(6.0, 7.0));
+        System.out.println("divide(20.0, 5.0) = " + divide(20.0, 5.0));
+        System.out.println("divide(5.0, 0.0) = " + divide(5.0, 0.0));
     }
 }
