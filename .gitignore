@@ -1,10 +1,31 @@
+# IDE settings and workspace files
+.vscode/
+.idea/
+*.iml
+
+# macOS
 .DS_Store
 
+# Python virtual environments and caches
 .venv/
 venv/
-
+env/
 __pycache__/
 *.py[cod]
-
 .pytest_cache/
 .mypy_cache/
+
+# Java build outputs
+*.class
+bin/
+out/
+target/
+build/
+*.jar
+*.war
+*.ear
+
+# General temporary files
+*.log
+*.tmp
+*.swp
