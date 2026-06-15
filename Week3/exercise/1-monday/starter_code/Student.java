@@ -5,49 +5,62 @@ import java.util.Objects;
  * See ../README.md
  */
 public class Student {
-    // TODO: private static nextId, private static count of instances
-    // TODO: private final int id; private String name; private String program
+    private static int nextId = 0;
+    private static int enrollmentCount = 0;
+    private final int id;
+    private String name;
+    private String program;
 
     public Student(String name, String program) {
-        throw new UnsupportedOperationException("TODO assign id, increment count");
+        this.id = ++nextId;
+        this.name = name;
+        this.program = program;
+        enrollmentCount++;
     }
 
     public int getId() {
-        throw new UnsupportedOperationException("TODO");
+        return id;
     }
 
     public String getName() {
-        throw new UnsupportedOperationException("TODO");
+        return name;
     }
 
     public String getProgram() {
-        throw new UnsupportedOperationException("TODO");
+        return program;
     }
 
     public void setName(String name) {
-        throw new UnsupportedOperationException("TODO");
+        this.name = name;
     }
 
     public void setProgram(String program) {
-        throw new UnsupportedOperationException("TODO");
+        this.program = program;
     }
 
     public static int getEnrollmentCount() {
-        throw new UnsupportedOperationException("TODO");
+        return enrollmentCount;
     }
 
     @Override
     public String toString() {
-        throw new UnsupportedOperationException("TODO");
+        return "Student{id=" + id + ", name='" + name + "', program='" + program + "'}";
     }
 
     @Override
     public boolean equals(Object o) {
-        throw new UnsupportedOperationException("TODO — same id => equal");
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Student)) {
+            return false;
+        }
+        Student student = (Student) o;
+        return id == student.id;
     }
 
     @Override
     public int hashCode() {
-        throw new UnsupportedOperationException("TODO — consistent with equals");
+        return Objects.hash(id);
     }
 }
