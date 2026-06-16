@@ -39,6 +39,13 @@ public class WhileLoops {
             System.out.println("Something to print");
 
         }while(count <=10);
+
+
+        //base class Object from which all classes inherit
+        Object obj = new Object();
+        System.out.println(obj.toString());
     }
+
+
 
 }
