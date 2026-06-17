@@ -7,22 +7,30 @@ public class TodoListManager {
     private final List<String> tasks = new ArrayList<>();
 
     public void addTask(String task) {
-        throw new UnsupportedOperationException("TODO");
+        tasks.add(task);
     }
 
     public String getTask(int index) {
-        throw new UnsupportedOperationException("TODO");
+        if (index < 0 || index >= tasks.size()) {
+            throw new IndexOutOfBoundsException("Invalid task index: " + index);
+        }
+        
+        return tasks.get(index);
     }
 
     public void completeTask(int index) {
-        throw new UnsupportedOperationException("TODO");
+        if (index < 0 || index >= tasks.size()) {
+            throw new IndexOutOfBoundsException("Invalid task index: " + index);
+        }
+
+        tasks.remove(index);
     }
 
     public List<String> listTasks() {
-        throw new UnsupportedOperationException("TODO");
+        return new ArrayList<>(tasks);
     }
 
     public int size() {
-        throw new UnsupportedOperationException("TODO");
+        return tasks.size();
     }
 }
