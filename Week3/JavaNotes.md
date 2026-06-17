@@ -701,7 +701,7 @@ A LinkedList is a data structure that is internally composed of **nodes** that c
 |Manipulation with ArrayList is slow because it internally uses an array. If any element is removed from the array, all the other elements are shifted in memory |	Manipulation with LinkedList is faster than ArrayList because of the use of nodes where you just need to change the nearest references of a node |
 |An ArrayList class can act as a list only because it implements List only	|LinkedList class can act as a list and queue because it implements List and Deque interfaces |
 |ArrayList is better for storing and accessing data |	LinkedList is better for manipulating data |
-|The memory location for the elements of an ArrayList are contiguous |	The location for the elements of a linked list are not contagious|
+|The memory location for the elements of an ArrayList are contiguous |	The location for the elements of a linked list are not contiguous|
 
 ### Set
 **Set** is a collection of non duplicate elements, meaning there will never exist a situation where element1.equals(element2). In addition to this, it is implied that there can only exist one null element due to the no duplicates rule. **Sets** do not guarantee order of insertion being maintained, but some implementations also use **SortedSet** for proper ordering
