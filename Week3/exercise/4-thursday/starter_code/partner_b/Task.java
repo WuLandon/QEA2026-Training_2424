@@ -3,12 +3,29 @@
  * TODO: implement Comparable<Task> (document ordering rule)
  */
 public class Task implements Comparable<Task> {
-    // TODO fields priority, description
+    private final int priority;
+    private final String description;
 
-    // TODO ctor, getters, toString
+    public Task(int priority, String description) {
+        this.priority = priority;
+        this.description = description;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    @Override
+    public String toString() {
+        return "Task [priority=" + priority + ", description=" + description + "]";
+    }
 
     @Override
     public int compareTo(Task o) {
-        throw new UnsupportedOperationException("TODO");
+        return Integer.compare(this.priority, o.priority);
     }
 }
