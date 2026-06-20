@@ -14,8 +14,8 @@ import java.util.ArrayList;
 public class Launcher {
     public static void main(String[] args) {
 
-        Employee e1 = new Employee("john","smith");
-//        System.out.println(e1);
+        Employee e1 = new Employee("john","smith",1);
+        System.out.println(e1);
 
         EmployeeDAO eDAO = new EmployeeDAO();
 //

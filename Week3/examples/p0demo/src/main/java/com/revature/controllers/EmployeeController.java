@@ -18,22 +18,36 @@ public class EmployeeController {
 
     EmployeeDAO eDAO = new EmployeeDAO();
 
-    public Handler getEmployeesHandler = (ctx -> {
+    public Handler getEmployeesHandler = (ctx) -> {
         /*
         What's ctx?? The context object! This objet contains methods that we can use to process HTTP requests
         and send HTTP responses. Here, we are giving it a variable called "ctx" so that we can access its methods*/
 
-        //We need an ArrayList of Employees, courtesy of our EmployeeDAO
-        ArrayList<Employee> employees = eDAO.getEmployees();
+        //if the Session is not null, we know the user is logged in.
+        //Thus, we can allow them to view employees
+        if (AuthController.ses != null) {
 
-        //use the .json() method to turn our Java into a JSON string
-        ctx.json(employees);
+            //this is just showing you how to retrieve saved session attributes
+            //realistically, you'de be putting these values into your DAOs
+            System.out.println(AuthController.ses.getAttribute("employee_id"));
 
-        //we can set the status code with ctx.status()
-        ctx.status(HttpStatus.OK);; //200 is the defualt "OK" message
+            //We need an ArrayList of Employees, courtesy of our EmployeeDAO
+            ArrayList<Employee> employees = eDAO.getEmployees();
+
+            //use the .json() method to turn our Java into a JSON string
+            ctx.json(employees);
+
+            //we can set the status code with ctx.status()
+            ctx.status(HttpStatus.OK);
+            ; //200 is the defualt "OK" message
 
 
-    });
+        } else { //if the user is NOT logged in
+            ctx.result("YOU MUST LOG IN TO DO THIS");
+            ctx.status(HttpStatus.UNAUTHORIZED);
+        }
+    };
+
 
     //This Handler will get the HTTP Post Request for inserting a new employee to the DB.
     public Handler insertEmployee = (ctx -> {

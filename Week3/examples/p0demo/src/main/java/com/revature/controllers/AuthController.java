@@ -22,7 +22,7 @@ public class AuthController {
         //ctx.bodyAsClass() to grab the HTTP request data and convert it into a LoginDTO object
         LoginDTO lDTO  =ctx.bodyAsClass(LoginDTO.class);
 
-        //if login sucessful, this Employee object will be populated, otherwise, null
+        //if login successful, this Employee object will be populated, otherwise, null
         Employee loggedInEmployee = aDAO.login(lDTO.getFirst_name(),lDTO.getLast_name());
         System.out.println(loggedInEmployee);
 

@@ -1,6 +1,7 @@
 package com.revature.DAOs;
 
 import com.revature.models.Employee;
+import com.revature.models.Role;
 import com.revature.utils.ConnectionUtil;
 
 import java.sql.Connection;
@@ -26,10 +27,15 @@ public class AuthDAO {
 
             //since we're only expecting one record, we can just use an if with rs.next() instead of while
             if(rs.next()){
+                int roleFK = rs.getInt("role_id_fk");
+                RoleDAO rDAO = new RoleDAO();
+                Role role = rDAO.getRoleById(roleFK);
+
                 Employee e = new Employee(
                         rs.getInt("employee_id"),
                         rs.getString("first_name"),
-                        rs.getString("last_name")
+                        rs.getString("last_name"),
+                        role
                 );
 
                 return e; //returning the Employee with the matching first_name/last_name
