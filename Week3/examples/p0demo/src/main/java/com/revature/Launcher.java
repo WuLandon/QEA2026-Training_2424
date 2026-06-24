@@ -18,8 +18,8 @@ public class Launcher {
         System.out.println(e1);
 
         EmployeeDAO eDAO = new EmployeeDAO();
-//
-//        eDAO.insertEmployee(e1);
+
+        eDAO.insertEmployee(e1);
 
         ArrayList<Employee> employees =  eDAO.getEmployees();
 
