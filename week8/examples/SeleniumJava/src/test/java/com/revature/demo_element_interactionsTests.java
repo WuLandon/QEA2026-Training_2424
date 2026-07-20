@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Demo: Element Interactions in Selenium
@@ -68,4 +69,46 @@ public class demo_element_interactionsTests {
 
         assertEquals(elementsBefore +1, elementsAfter);
     }
+
+    @Test
+    @DisplayName("click() - Link navigation")
+    void click_linkNavigation(){
+        driver.get(BASE_URL);
+
+        //Find and click a link
+        WebElement link =driver.findElement(
+                By.linkText("Form Authentication")
+        );
+        link.click();
+
+        //verify navigation occurred
+        assertTrue(driver.getCurrentUrl().contains("login"));
+    }
+
+    //2: Text Input Operations
+    @Test
+    @DisplayName("sendKeys() - Type text into input")
+    void sendKeys_typeText(){
+        /*
+        *sendKeys() types text into input fields
+        * works with text fields, textareas, etc.
+         */
+
+        driver.get(BASE_URL + "login");
+
+        WebElement usernameInput = driver.findElement(By.id("username"));
+        WebElement passwordInput = driver.findElement(By.id("password"));
+
+        //Type into fields
+        usernameInput.sendKeys("tomsmith");
+        passwordInput.sendKeys("SuperSecretPassword!");
+
+        //verify text was entered
+        assertEquals("tomsmith", usernameInput.getAttribute("value"));
+        assertEquals("SuperSecretPassword!", passwordInput.getAttribute("value"));
+
+        System.out.println("Text Entered successfully!");
+    }
+
+
 }
