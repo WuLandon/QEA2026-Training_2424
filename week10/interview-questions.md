@@ -14,6 +14,8 @@
 
 **Keywords:** IaaS, PaaS, SaaS, Responsibility, Management
 
+**Related notes:** [AWS Introduction — Cloud Service Models](2-tuesday/written/aws-introduction.md#cloud-service-models)
+
 <details>
 <summary>Click to Reveal Answer</summary>
 
@@ -32,6 +34,8 @@ The three cloud service models are:
 ### Q2: What is IAM in AWS, and what are its four core components?
 
 **Keywords:** Identity, Access, Users, Groups, Roles, Policies
+
+**Related notes:** [AWS Introduction — IAM Basics](2-tuesday/written/aws-introduction.md#iam-basics)
 
 <details>
 <summary>Click to Reveal Answer</summary>
@@ -55,6 +59,8 @@ Best practices include: never using root account for daily tasks, enabling MFA, 
 
 **Keywords:** Virtual Firewall, Inbound, Outbound, Stateful, Instance-level
 
+**Related notes:** [Security Groups — What is a Security Group?](2-tuesday/written/security-groups.md#what-is-a-security-group), [Key Characteristics](2-tuesday/written/security-groups.md#key-characteristics), and [Inbound vs Outbound Rules](2-tuesday/written/security-groups.md#inbound-vs-outbound-rules)
+
 <details>
 <summary>Click to Reveal Answer</summary>
 
@@ -77,6 +83,8 @@ Security groups control which ports are open and from which IP addresses traffic
 
 **Keywords:** Kernel, Isolation, Overhead, Startup, Portability
 
+**Related notes:** [Docker Introduction — Containerization vs Virtualization](3-wednesday/written/docker-introduction.md#containerization-vs-virtualization)
+
 <details>
 <summary>Click to Reveal Answer</summary>
 
@@ -97,6 +105,8 @@ Containers are more lightweight because they share the host operating system ker
 ### Q5: What is a Dockerfile and what are five essential instructions used in it?
 
 **Keywords:** Build, Image, FROM, RUN, COPY, CMD, Layers
+
+**Related notes:** [Dockerfiles — What is a Dockerfile?](3-wednesday/written/dockerfiles.md#what-is-a-dockerfile) and [Essential Dockerfile Instructions](3-wednesday/written/dockerfiles.md#essential-dockerfile-instructions)
 
 <details>
 <summary>Click to Reveal Answer</summary>
@@ -119,6 +129,8 @@ Five essential instructions:
 
 **Keywords:** Persistence, Data, Container Lifecycle, Named, Bind Mount
 
+**Related notes:** [Docker Volumes — The Data Persistence Problem](3-wednesday/written/docker-volumes.md#the-data-persistence-problem), [Types of Docker Storage](3-wednesday/written/docker-volumes.md#types-of-docker-storage), and [Volume vs Bind Mount Comparison](3-wednesday/written/docker-volumes.md#volume-vs-bind-mount-comparison)
+
 <details>
 <summary>Click to Reveal Answer</summary>
 
@@ -139,6 +151,8 @@ Volumes are important because real applications need persistent data: databases 
 ### Q7: What is DevOps and what are its three main components?
 
 **Keywords:** Culture, Practices, Tools, Collaboration, Automation
+
+**Related notes:** [DevOps Introduction — What is DevOps?](4-thursday/written/devops-introduction.md#what-is-devops), [DevOps Culture](4-thursday/written/devops-introduction.md#devops-culture-breaking-down-silos), and [DevOps Core Practices](4-thursday/written/devops-introduction.md#devops-core-practices)
 
 <details>
 <summary>Click to Reveal Answer</summary>
@@ -163,6 +177,8 @@ DevOps is NOT just automation or tools—culture is foundational. "You build it,
 
 **Keywords:** Metrics, Time-series, Pull-based, Scrape, PromQL
 
+**Related notes:** [Prometheus Essentials — What is Prometheus?](4-thursday/written/prometheus-essentials.md#what-is-prometheus), [Prometheus Architecture](4-thursday/written/prometheus-essentials.md#prometheus-architecture), and [Pull-Based vs Push-Based Monitoring](4-thursday/written/prometheus-essentials.md#pull-based-vs-push-based-monitoring)
+
 <details>
 <summary>Click to Reveal Answer</summary>
 
@@ -184,6 +200,8 @@ Prometheus is best for: application performance monitoring, infrastructure metri
 ### Q9: What is Grafana and how does it relate to Prometheus?
 
 **Keywords:** Visualization, Dashboards, Data Source, Panels, Queries
+
+**Related notes:** [Grafana Overview — What is Grafana?](4-thursday/written/grafana-overview.md#what-is-grafana), [Data Source Concept](4-thursday/written/grafana-overview.md#data-source-concept), and [Connecting a Prometheus Data Source](4-thursday/written/connecting-data-sources.md#adding-prometheus-data-source)
 
 <details>
 <summary>Click to Reveal Answer</summary>
@@ -211,6 +229,8 @@ Grafana doesn't store data—it queries external data sources like Prometheus, I
 
 **Keywords:** CI/CD, Automation, Pipelines, Builds, Open-source
 
+**Related notes:** [Introduction to Jenkins — What is Jenkins?](5-friday/written/jenkins-introduction.md#what-is-jenkins) and [Jenkins Architecture](5-friday/written/jenkins-introduction.md#jenkins-architecture)
+
 <details>
 <summary>Click to Reveal Answer</summary>
 
@@ -232,6 +252,8 @@ Jenkins automates the path from code commit to production deployment, orchestrat
 ### Q11: What is a Jenkinsfile and why is "Pipeline as Code" important?
 
 **Keywords:** Version Control, Repository, Declarative, Stages, Reproducible
+
+**Related notes:** [Jenkinsfile and Pipeline Syntax — Pipeline as Code](5-friday/written/jenkinsfile.md#pipeline-as-code) and [Pipeline Structure](5-friday/written/jenkinsfile.md#pipeline-structure)
 
 <details>
 <summary>Click to Reveal Answer</summary>
@@ -258,6 +280,8 @@ This contrasts with traditional "click-through" UI configuration, which is hard 
 **Hint:** Think about network traffic rules between AWS resources.
 
 **Keywords:** Security Group, Inbound Rules, Port, Source
+
+**Related notes:** [Security Groups — Security Group References](2-tuesday/written/security-groups.md#security-group-references), [Add Inbound Rules](2-tuesday/written/security-groups.md#add-inbound-rules), and [RDS Security](2-tuesday/written/rds-introduction.md#rds-security)
 
 <details>
 <summary>Click to Reveal Answer</summary>
@@ -290,6 +314,8 @@ Using security group references (instead of IP addresses) is a best practice bec
 **Hint:** Consider separating build dependencies from runtime.
 
 **Keywords:** Multi-stage, Build, Runtime, Layers, COPY --from
+
+**Related notes:** [Multi-Stage Dockerfiles — Multi-Stage Build Solution](3-wednesday/written/multi-stage-dockerfiles.md#multi-stage-build-solution), [How Multi-Stage Builds Work](3-wednesday/written/multi-stage-dockerfiles.md#how-multi-stage-builds-work), and [Java Multi-Stage Build](3-wednesday/written/multi-stage-dockerfiles.md#java-multi-stage-build)
 
 <details>
 <summary>Click to Reveal Answer</summary>
@@ -331,6 +357,8 @@ Benefits:
 **Hint:** Consider the "Four Golden Signals" of monitoring.
 
 **Keywords:** Error Rate, Latency, Traffic, rate(), Dashboard
+
+**Related notes:** [Common Metrics — The Four Golden Signals](4-thursday/written/common-metrics.md#the-four-golden-signals), [Four Golden Signals Queries](4-thursday/written/common-metrics.md#four-golden-signals-queries), [PromQL Error Rate Calculations](4-thursday/written/querying-metrics.md#error-rate-calculations), and [Grafana Dashboard Anatomy](4-thursday/written/dashboards.md#dashboard-anatomy)
 
 <details>
 <summary>Click to Reveal Answer</summary>
@@ -380,6 +408,8 @@ These align with the **Four Golden Signals**: Latency, Traffic, Errors, and Satu
 **Hint:** Use the `when` directive for conditional execution.
 
 **Keywords:** pipeline, stages, steps, when, branch
+
+**Related notes:** [Jenkinsfile — Basic Declarative Pipeline](5-friday/written/jenkinsfile.md#basic-declarative-pipeline), [Pipeline Stage Structure](5-friday/written/jenkins-pipeline-stages.md#stage-structure), and [Conditional Stages (`when`)](5-friday/written/jenkins-pipeline-stages.md#conditional-stages-when)
 
 <details>
 <summary>Click to Reveal Answer</summary>
@@ -446,6 +476,8 @@ Key elements:
 ### Q16: You're designing a CI/CD pipeline that builds a Docker image, runs tests, and deploys to AWS. Explain the complete flow including security considerations, and describe how you would handle secrets like AWS credentials and Docker registry passwords.
 
 **Keywords:** Credentials, Pipeline, Security Groups, IAM Roles, Jenkins Credentials, Environment Variables
+
+**Related notes:** [CI/CD Pipeline Stages](4-thursday/written/continuous-integration-delivery-deployment.md#cicd-pipeline-stages), [Complete Jenkins CI/CD Pipeline](5-friday/written/jenkinsfile.md#complete-cicd-pipeline), [Using Jenkins Credentials in Builds](5-friday/written/jenkins-credentials.md#using-credentials-in-builds), [Security Group Best Practices](2-tuesday/written/security-groups.md#security-group-best-practices), and [Container Security Considerations](3-wednesday/written/containerization.md#container-security-considerations)
 
 <details>
 <summary>Click to Reveal Answer</summary>
